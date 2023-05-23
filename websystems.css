@@ -1,0 +1,368 @@
+body {
+	margin:100px 0 0 0;
+	font-family:arial;
+	background:linear-gradient(0deg, rgb(0,20,65) 20%, rgb(15,0,160) 50%, rgb(0,160,200) 100%);
+	/*overscroll-behavior: none;*/
+
+
+}
+/*page load*/
+@keyframes loadin {
+	from {
+		z-index: -1;
+		opacity:0;
+		transform: rotateX(-15deg);
+	}
+	to {
+		opacity:1;
+		transform: rotateX(0);
+	}
+}
+main {
+	z-index: -1;
+	animation: loadin .75s;
+}
+
+
+
+/* Style for Name and SSID */
+.name {
+	display:inline-block;
+	font-size:48px;
+	color:rgba(0, 0, 100,1);
+	border:dashed 3px rgb(0, 0, 50);
+	border-radius:15px;
+	padding:3px 10px;
+	margin:16px auto auto 25px;
+	transition: color .25s ease-out 75ms;
+
+}
+.ssid{
+	color:rgba(0,0,0,0);
+	position:absolute;
+	left:19px;
+	top:3px;
+	border:none;
+}
+.ssid:hover{
+	color:rgba(0,0,100,1);
+}
+.ssid:hover + .name{
+	color:rgba(0,0,0,0);
+}
+
+
+
+/* Style for links */
+.navbar {
+	list-style-type:none;
+	display:inline;
+	position:absolute;
+	top:20px;
+}
+.navbar li {
+	display:inline;
+	margin:20px;
+	background-color: white;
+	border:none;
+	border-radius:20px;
+	font-size:24px;
+	padding:6px 19px;
+	box-shadow: 5px 5px 0px black;
+}
+li a{
+	color:rgb(0,0,125);
+	text-decoration:none;
+}
+.navbar li:not(.selected):hover {
+
+	position:relative;
+	top:-3px;
+	box-shadow: 8px 8px 0px black;
+	transition:0.3s;
+}
+.navbar li:not(.selected):active {
+	cursor:pointer;
+	position:relative;
+	top:3px;
+	box-shadow: 3px 3px 0px black;
+	background-color:rgb(200,200,200);
+}
+.selected {
+	position:relative;
+	top:3px;
+	box-shadow: 3px 3px 0px black !important;
+	background-color:rgb(200,200,200) !important;
+}
+.selected a {
+	cursor:default;
+}
+
+
+
+
+
+/* background div for navigation menu */
+.header {
+	background:linear-gradient(0deg, rgba(220,220,220,1) 50%, rgba(255,255,255,1) 100%);
+	height:100px;
+	position:fixed;
+	top:0px;
+	width:95%;
+	border-radius:0 0 10px 10px;
+	margin-left:2.5%;
+	border:grey solid 2px;
+	border-top:none;
+	z-index:1;
+}
+
+
+
+/* Windows XP window controls */
+.tool{
+	display:inline-block;
+	float:right;
+	border:solid white 3px;
+	width:30px;
+	height:20px;
+	color:white;
+}
+.toolbar {
+	position:absolute;
+	top:0;
+	right:0;
+}
+.x{
+	background:linear-gradient(0deg, rgba(255,0,0,1) 50%, rgba(255,255,255,1) 100%);
+	font-size:20px;
+	border-radius:0 5px 5px 0;
+}
+.x p{
+	position:relative;
+	top:-22px;
+	left:10px;
+}
+.max {
+	background:linear-gradient(0deg, rgba(100,100,255,1) 50%, rgba(255,255,255,1) 100%);
+	font-size:25px;
+}
+.max p {
+	position:relative;
+	top:-32px;
+	left:7px;
+}
+.min {
+	background:linear-gradient(0deg, rgba(150,150,255,1) 50%, rgba(255,255,255,1) 100%);
+	font-size:20px;
+	border-radius:5px 0 0 5px;
+}
+.min p{
+	position:relative;
+	top:-27px;
+	left:9px;
+}
+
+
+
+/* Style for main content */
+
+.note{
+	position:relative;
+	top:-10px;
+	color:grey;
+	font-style:italic;
+}
+.aboutme {
+	width:90%;
+	margin:auto;
+	margin-top:150px;
+	background-color:white;
+	border-radius:15px;
+	margin-bottom:50px;
+	overflow:auto;
+}
+.content {
+	padding-left:25px;
+	padding-top:15px;
+	padding-bottom:15px;
+	height:auto;
+
+}
+.text {
+	width:58%;
+	text-align: justify;
+	margin:40px 30px 150px 30px;
+}
+
+
+.right h1 {
+	text-align:right;
+}
+.left h1 {
+	text-align:left;
+}
+.left{
+	float:left;
+}
+.right {
+	float:right;
+}
+
+
+/*style specifically for the image carousel*/
+.carousel {
+	width:350px;
+	height:300px;
+	overflow:hidden;
+	margin-left:25px;
+	margin-right:45px;
+	position:relative;
+	border-radius:15px;
+}
+
+.carousel img {
+	max-height: 100%;
+	display:none;
+	margin:auto;
+	position:absolute;
+}
+
+@keyframes out{
+	0% {transform: translateX(0);}
+	100% {transform: translateX(350px);}
+}
+@keyframes in{
+	0% {transform: translateX(-350px);}
+	90% {transform: translateX(0);}
+}
+
+
+
+/*No javascript modal activation (when css is disabled, content will still show)*/
+#cybermodal { display:block;animation:modalin .5s forwards; }
+
+#cybermodal:not(:target):not([open]) { display:none; }
+
+#progmodal { display:block;animation:modalin .5s forwards; }
+
+#progmodal:not(:target):not([open]) { display:none; }
+
+#robotmodal { display:block;animation:modalin .5s forwards; }
+
+#robotmodal:not(:target):not([open]) { display:none; }
+
+@keyframes modalin {
+	0% {opacity:0;transform: rotateX(-50deg);box-shadow:0 50px 2000px rgba(0,0,0,0);}
+	100% {opacity:1;transform: rotateX(0);box-shadow:0 0 50px 2000px rgba(0,0,0,.5);}
+
+}
+
+
+/*modal styling*/
+.modals > div{
+	background-color:white;
+	position:absolute;
+	left:20%;
+	right:20%;
+	height:auto;
+}
+
+.modaltable {
+	width:100%;
+	table-layout: fixed;
+
+}
+.modaltable th {
+	font-size:20px;
+
+}
+.modaltable td {
+	width:auto;
+	padding:70px;
+	position:relative;
+
+}
+.modaltable img {
+	max-width:100%;
+	z-index:2;
+	filter:saturate(.5) blur(.75px);
+	position:relative;
+	top:0;
+}
+.modaltable a:hover + img {
+	position:relative;
+	filter:saturate(1) blur(.75px);
+	top:-5px;
+	transition:.5s;
+}
+.modaltable a {
+	position:absolute;
+	left:0; right:0;
+	margin:auto;
+	margin-top:65px;
+	text-decoration: none;
+	text-align:center;
+	color:white;
+	font-size: 72px;
+	font-weight:bolder;
+	z-index: 3;
+}
+.modals div {
+	z-index:5;
+	padding:15px;
+	top:125px;
+}
+.modals div a {
+	float:right;
+	position:relative;
+	text-decoration:none;
+	color:black;
+	font-size:24px;
+}
+.modals p {
+	text-align:justify;
+	line-height:25px;
+}
+
+
+
+
+/*Future page styling*/
+.future{
+	display:block;
+	width:50%;
+	margin:auto;
+	text-align:justify;
+	line-height: 25px;
+}
+.futureimg{
+	width:50%;
+	height:300px;
+	margin-left:25%;
+	padding-top: 35px;
+
+}
+.summary {
+	background-color:#ded1ed;
+	font-style:italic;
+	font-size:18px;
+}
+
+
+
+/*Comments page styling*/
+.comments > p,li{
+
+	line-height: 25px;
+	text-align: justify;
+	word-spacing: 3px;
+	margin-left: 60px;
+	margin-right:60px;
+
+}
+.comments > img {
+	display:block;
+	height: 300px;
+	margin-left:auto;
+	margin-right:auto;
+}
