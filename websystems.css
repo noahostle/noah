@@ -1,11 +1,17 @@
+html {height:100%;}
 body {
 	margin:100px 0 0 0;
+	height:100%;
 	font-family:arial;
 	background:linear-gradient(0deg, rgb(0,20,65) 20%, rgb(15,0,160) 50%, rgb(0,160,200) 100%);
-	/*overscroll-behavior: none;*/
+	overscroll-behavior: none;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
 
 
 }
+
 /*page load*/
 @keyframes loadin {
 	from {
@@ -174,6 +180,7 @@ li a{
 }
 .aboutme {
 	width:90%;
+	height:100%;
 	margin:auto;
 	margin-top:150px;
 	background-color:white;
@@ -239,13 +246,6 @@ li a{
 
 
 /*No javascript modal activation (when css is disabled, content will still show)*/
-#cybermodal { display:block;animation:modalin .5s forwards; }
-
-#cybermodal:not(:target):not([open]) { display:none; }
-
-#progmodal { display:block;animation:modalin .5s forwards; }
-
-#progmodal:not(:target):not([open]) { display:none; }
 
 #robotmodal { display:block;animation:modalin .5s forwards; }
 
@@ -264,7 +264,7 @@ li a{
 	position:absolute;
 	left:20%;
 	right:20%;
-	height:auto;
+	height:80%;
 }
 
 .modaltable {
@@ -282,12 +282,20 @@ li a{
 	position:relative;
 
 }
+.help {
+	color:#6400de !important;
+	text-decoration: underline !important;
+	font-size:24px !important;
+	padding:0 !important;
+
+}
 .modaltable img {
-	max-width:100%;
+	max-width:15%;
 	z-index:2;
 	filter:saturate(.5) blur(.75px);
 	position:relative;
 	top:0;
+	left:42.5%;
 }
 .modaltable a:hover + img {
 	position:relative;
@@ -299,18 +307,18 @@ li a{
 	position:absolute;
 	left:0; right:0;
 	margin:auto;
-	margin-top:65px;
+	height:100%;
 	text-decoration: none;
 	text-align:center;
 	color:white;
-	font-size: 72px;
+	font-size: 2px;
 	font-weight:bolder;
 	z-index: 3;
 }
 .modals div {
 	z-index:5;
 	padding:15px;
-	top:125px;
+	top:20px;
 }
 .modals div a {
 	float:right;
@@ -319,9 +327,10 @@ li a{
 	color:black;
 	font-size:24px;
 }
-.modals p {
-	text-align:justify;
-	line-height:25px;
+.modalpdf {
+	
+	width:95%;
+	height:100%;
 }
 
 
