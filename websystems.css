@@ -359,19 +359,18 @@ li a{
 
 
 
-/*Comments page styling*/
-.comments > p,li{
+/*blog page styling*/
 
-	line-height: 25px;
-	text-align: justify;
-	word-spacing: 3px;
-	margin-left: 60px;
-	margin-right:60px;
-
+.subdivider {
+	width:80%;
+	border-radius: 15px;
+	background-color:white;
+	position:relative;
+	left:10%;
+	margin-top:25px;
+	padding:1px 10px 1px 10px;
+	cursor:pointer;
 }
-.comments > img {
-	display:block;
-	height: 300px;
-	margin-left:auto;
-	margin-right:auto;
+.subdivider h1{
+	color:rgb(0,0,125);
 }
