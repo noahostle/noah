@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Noah Ostle</title>
+		<link rel="stylesheet" href="websystems.css">
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+	</head>
+	<body>
+
+
+		<div class="header">
+
+	 		<h1 class="name ssid"> Heyyyyyyy </h1>
+	 		<h1 class="name">Noah Ostle</h1>
+
+			<ul class="navbar">
+				<li><a href="index.html">Home</a></li>
+				<li ><a href="resume.html">Resume</a></li>
+				<li><a href="links.html">Links</a></li>
+				<li class="selected"><a href="blog.html">SecBlog</a></li>
+			</ul>
+
+
+			<div class="toolbar">
+				<div class="tool x"><p>x</p></div>
+				<div class="tool max"><p>□</p></div>
+				<div class="tool min"><p>_</p></div>
+			</div>
+
+		</div>
+
+
+		<div id="blog" style="padding-top:15px">
+		</div>
+
+		<script>
+
+			async function getarticles(){
+
+				const url = 'https://medium2.p.rapidapi.com/user/695554d647fd/articles';
+				const options = {
+					method: 'GET',
+					headers: {
+						'X-RapidAPI-Key': '63cef02bb2msh972ee065c78344ep171254jsn53ea95f95ae9',
+						'X-RapidAPI-Host': 'medium2.p.rapidapi.com'
+					}
+				};
+
+				try {
+					const response = await fetch(url, options);
+					const result = await response.text();
+					return result;
+				} catch (error) {
+					console.error(error);
+				}
+			}
+
+			async function display(id){
+
+				const url = `https://medium2.p.rapidapi.com/article/${id}`;
+				const options = {
+					method: 'GET',
+					headers: {
+						'X-RapidAPI-Key': '63cef02bb2msh972ee065c78344ep171254jsn53ea95f95ae9',
+						'X-RapidAPI-Host': 'medium2.p.rapidapi.com'
+					}
+				};
+
+				try {
+					const response = await fetch(url, options);
+					const result = await response.text();
+					return result;
+				} catch (error) {
+					console.error(error);
+				}
+
+			}
+
+
+			async function run(){
+				var id = await getarticles();
+				
+				lis = JSON.parse(id).associated_articles
+
+				for (let i=0; i<lis.length; i++){
+					console.log(lis)
+					var res = await display(lis[i]);
+					console.log(res)
+
+					var doc = JSON.parse(res);
+
+					var url = doc.url;
+					var title = doc.title;
+					var subtitle = doc.subtitle;
+
+					addtodoc(url, title, subtitle);
+
+
+				}
+			}run();
+
+			function addtodoc(url, title, sub){
+				var newh = document.createElement('h1');
+				newh.innerHTML=title;
+
+				var news = document.createElement('p')
+				news.innerHTML=sub;
+
+				var blogdiv = document.getElementById('blog');
+
+				var subdivider = document.createElement("div");
+				subdivider.className="subdivider";
+				subdivider.addEventListener("click", function(e) {
+						window.location.href=url;
+					}, false);
+
+				subdivider.appendChild(newh);
+				subdivider.appendChild(news);
+
+				blogdiv.appendChild(subdivider);
+			}
+
+		</script>
+
+
+
+	</body>
+</html>
